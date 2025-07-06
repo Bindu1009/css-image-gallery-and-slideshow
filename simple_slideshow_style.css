@@ -1,0 +1,91 @@
+/* Basic Page Setup */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+.slideshow-container {
+    max-width: 800px; /* Max width for the slideshow */
+    margin: 40px auto; /* Center the container */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Important for containing slides */
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Slideshow Core Styles */
+.slides {
+    position: relative; /* All slides will be positioned relative to this */
+    width: 100%;
+    height: 450px; /* Fixed height for the slideshow area */
+    overflow: hidden; /* Hide parts of images outside the box */
+}
+
+.slide-item {
+    position: absolute; /* Stack images on top of each other */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Make sure image covers the area */
+    opacity: 0; /* Hide by default */
+
+    /* Animation setup */
+    animation: simple-fade 9s infinite; /* 3 images * 3s per image = 9s total duration */
+}
+
+/* Set animation delays for each slide */
+.slide-item:nth-child(1) {
+    animation-delay: 0s; /* First slide starts immediately */
+}
+
+.slide-item:nth-child(2) {
+    animation-delay: 3s; /* Second slide appears after 3 seconds */
+}
+
+.slide-item:nth-child(3) {
+    animation-delay: 6s; /* Third slide appears after 6 seconds */
+}
+
+/* Define the simple fade animation */
+@keyframes simple-fade {
+    0% { opacity: 0; } /* Start invisible */
+    11.11% { opacity: 1; } /* Fade in (approx 1/9th of total duration) */
+    33.33% { opacity: 1; } /* Stay visible (1/3rd of total duration) */
+    44.44% { opacity: 0; } /* Fade out */
+    100% { opacity: 0; } /* Remain invisible until next cycle */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .slides {
+        height: 300px; /* Reduce height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .slides {
+        height: 200px; /* Further reduce height for very small screens */
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+}
